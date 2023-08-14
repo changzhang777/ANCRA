@@ -96,7 +96,7 @@ sn = args.sample_number
 scn = args.sample_class_number
 alpha = args.alpha
 
-class_number = 200  # len(trainset.classes)
+class_number = 10  # len(trainset.classes)
 
 
 def u_trades(model, x_natural, y, step_size=0.003,
