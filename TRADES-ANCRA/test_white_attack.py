@@ -44,7 +44,7 @@ logger.info(args)
 
 # set up data loader
 transform_test = transforms.Compose([transforms.ToTensor(), ])
-testset = torchvision.datasets.CIFAR100(root='../../data', train=False, download=True, transform=transform_test)
+testset = torchvision.datasets.CIFAR100(root='./dataset', train=False, download=True, transform=transform_test)
 test_loader = torch.utils.data.DataLoader(testset, batch_size=args.test_batch_size, shuffle=False, num_workers=4,
                                           pin_memory=True)
 
