@@ -4,10 +4,9 @@ import argparse
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torchvision import transforms
+from torch-vision import transforms
 import torch.backends.cudnn as cudnn
 
-import resnet_self_two_layer as resnet
 import numpy as np
 from torch.autograd import Variable
 import torch.optim as optim
@@ -16,7 +15,7 @@ import cv2
 import torchvision
 import warnings
 import matplotlib.pyplot as plt
-
+import seaborn as sns
 
 warnings.filterwarnings("ignore")
 
@@ -50,21 +49,14 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 use_cuda = not args.no_cuda and torch.cuda.is_available()
 device = torch.device("cuda" if use_cuda else "cpu")
 
-import seaborn as sns
+
 
 def main():
     method = ['PGD-AT', 'Trades', 'Mart', 'ours']#, 'ours'
     sim = ['PPfcos', 'PPfL2', 'NPfcos', 'NPfL2']#'PPpcos', 'PPpL2', 'NPpcos', 'NPpL2',
     labels = ['PGD-AT', 'TRADES', 'MART', 'ANCRA']#'ours'
     colors = ['#2B8FB8', '#A5678E', '#38549C', '#E8B7D4']#, '#E8B7D4'
-    #['lightgreen', 'powderblue', 'peachpuff', 'hotpink']
-    #'#00C6AF','#2F4858',  '#B6D0E4'
-    #'#E8B7D4', '#A5678E', '#38549C'
-    #'#677987', '#876E7D', '#553E4C'
-    #'#438A80', '#344B47', '#96B1AC'
-    #'#FFA17A', '#E5848D', '#B77398'
-    #'#FFA17A', '#B78571', '#C36C49'
-    #'#148582', '#76B0AE', '#00638C'
+
     for i in range(len(sim)):
         for j in range(len(method)):
             sim_list = torch.load('./three/%s-%s.npy' % (method[j], sim[i]))#args.target_label,
