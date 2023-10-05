@@ -102,30 +102,6 @@ class WideResNet(nn.Module):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class ANCRA_BasicBlock(nn.Module):
     def __init__(self, in_planes, out_planes, stride, dropRate=0.0):
         super(ANCRA_BasicBlock, self).__init__()
@@ -170,19 +146,6 @@ class ANCRA_BasicBlock(nn.Module):
         return out, fc_out
 
 
-class NetworkBlock(nn.Module):
-    def __init__(self, nb_layers, in_planes, out_planes, block, stride, dropRate=0.0):
-        super(NetworkBlock, self).__init__()
-        self.layer = self._make_layer(block, in_planes, out_planes, nb_layers, stride, dropRate)
-
-    def _make_layer(self, block, in_planes, out_planes, nb_layers, stride, dropRate):
-        layers = []
-        for i in range(int(nb_layers)):
-            layers.append(block(i == 0 and in_planes or out_planes, out_planes, i == 0 and stride or 1, dropRate))
-        return nn.Sequential(*layers)
-
-    def forward(self, x):
-        return self.layer(x)
 
 class NetworkBlock_ANCRA(nn.Module):
     def __init__(self, nb_layers, in_planes, out_planes, block, stride, dropRate=0.0):
@@ -194,26 +157,37 @@ class NetworkBlock_ANCRA(nn.Module):
         layers = []
         # for i in range(int(nb_layers)):
         #     layers.append(block(i == 0 and in_planes or out_planes, out_planes, i == 0 and stride or 1, dropRate))
-        for i in range(int(nb_layers)-1):
+        #for i in range(int(nb_layers)-1):
+        #    layers.append(block(i == 0 and in_planes or out_planes, out_planes, i == 0 and stride or 1, dropRate))
+        #for i in range(int(nb_layers)-1, int(nb_layers)):
+        #    layers.append(ANCRA_BasicBlock(i == 0 and in_planes or out_planes, out_planes, i == 0 and stride or 1, dropRate))
+
+        for i in range(int(nb_layers)-2):
             layers.append(block(i == 0 and in_planes or out_planes, out_planes, i == 0 and stride or 1, dropRate))
-        for i in range(int(nb_layers)-1, int(nb_layers)):
+        for i in range(int(nb_layers)-2, int(nb_layers)):
             layers.append(ANCRA_BasicBlock(i == 0 and in_planes or out_planes, out_planes, i == 0 and stride or 1, dropRate))
         return nn.ModuleList(layers)
 
     def forward(self, x, y, fc, bn1, relu, nChannels):
         extra_output = []
         out = x
-        for i in range(int(self.nb_layers)-1):
+        #for i in range(int(self.nb_layers)-1):
+        #    out = self.layer[i](out)
+        #for i in range(int(self.nb_layers)-1, int(self.nb_layers)):
+        #    out, fc_output = self.layer[i](out, y, fc, bn1, relu, nChannels)
+        #    extra_output.append(fc_output)
+        
+        for i in range(int(self.nb_layers)-2):
             out = self.layer[i](out)
-        for i in range(int(self.nb_layers)-1, int(self.nb_layers)):
-             out, fc_output = self.layer[i](out, y, fc, bn1, relu, nChannels)
-             extra_output.append(fc_output)
+        for i in range(int(self.nb_layers)-2, int(self.nb_layers)):
+            out, fc_output = self.layer[i](out, y, fc, bn1, relu, nChannels)
+            extra_output.append(fc_output)
 
         return out, extra_output
 
-class WideResNet_RA(nn.Module):
+class WideResNet_ANCRA(nn.Module):
     def __init__(self, depth=34, num_classes=10, widen_factor=10, dropRate=0.0):
-        super(WideResNet_RA, self).__init__()
+        super(WideResNet_ANCRA, self).__init__()
         nChannels = [16, 16 * widen_factor, 32 * widen_factor, 64 * widen_factor]
         assert ((depth - 4) % 6 == 0)
         n = (depth - 4) / 6
