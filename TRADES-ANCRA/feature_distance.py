@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from torchvision import transforms
 import torch.backends.cudnn as cudnn
 
-import resnet_self_two_layer as resnet
+from models import resnet
 import numpy as np
 from torch.autograd import Variable
 import torch.optim as optim
@@ -307,7 +307,7 @@ def main():
     print('neg chosen from natural examples')
     logger.info('neg chosen from natural examples')
 
-    model = resnet.ResNet18_S(10).cuda()
+    model = resnet.ResNet18_RA(num_classes=10).cuda()
     model.load_state_dict(torch.load(model_path))
     model = torch.nn.DataParallel(model).cuda()
     cudnn.benchmark = True
