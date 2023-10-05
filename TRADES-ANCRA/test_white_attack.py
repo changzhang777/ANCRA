@@ -182,8 +182,7 @@ def main():
 
     eval_adv_test_whitebox_fgsm(model, test_loader)
     eval_adv_test_whitebox_cw(model, test_loader)
-
-    #eval_adv_test_AA(model, test_loader)
+    eval_adv_test_AA(model, test_loader)
 
 
 if __name__ == '__main__':
