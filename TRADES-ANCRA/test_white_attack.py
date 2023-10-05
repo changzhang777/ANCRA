@@ -15,8 +15,6 @@ import logging
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 parser = argparse.ArgumentParser(description='PyTorch CIFAR PGD Attack Evaluation')
-parser.add_argument('--arch', '-a', metavar='ARCH', default='resnet18',
-                    help='model architecture')
 parser.add_argument('--test-batch-size', type=int, default=200,
                     help='input batch size for testing (default: 200)')
 parser.add_argument('--epsilon', default=8. / 255., type=float,
