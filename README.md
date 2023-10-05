@@ -32,19 +32,19 @@
 
 ## training setting:
 
-$\alpha$ : 1.0, 
+* $\alpha$ : 1.0, 
 
-$\beta$ : 6.0 in TRADES and 5.0 in MART,
+* $\beta$ : 6.0 in TRADES and 5.0 in MART,
 
-$\zeta$ : 3.0 (6.0 when training WideResNet-28-10),
+* $\zeta$ : 3.0 (6.0 when training WideResNet-28-10),
 
-learning rate : **0.1**, 
+* learning rate : **0.1**, 
 
-epochs : 120 (76), 
+* epochs : 120 (76), 
 
-batch size : 128, 
+* batch size : 128, 
 
-weight decay : **0.0002**, (**0.0005** when training PreActResNet-18)
+* weight decay : **0.0002**, (**0.0005** when training PreActResNet-18)
 
 
 
