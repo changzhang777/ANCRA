@@ -171,8 +171,7 @@ def eval_adv_test_AA(model, test_loader):
 
 
 def main():
-    model = ResNet18(num_classes=100)
-    model = model.cuda()
+    model = ResNet18_RA(num_classes=10).cuda()# (num_classes=100).cuda()
     model_name = 'model_120.pth'
     print("evaluating {}...".format(model_path))
     logger.info("evaluating {}...".format(os.path.join(model_path, model_name)))
