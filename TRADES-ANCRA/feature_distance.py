@@ -30,7 +30,7 @@ parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='disables CUDA training')
 parser.add_argument('--dataset', type=str,
                     help='cifar10,cifar100,tiny-imagenet', default='cifar10')
-parser.add_argument('--model-dir', default='./model/NPsfc-cifar10-strategy-random-alpha-1.0-beta-6.0-zeta-3.0-seed-1',
+parser.add_argument('--model-dir', default='./model/NPsfc-cifar10-strategy-random-adv-alpha-1.0-beta-6.0-zeta-3.0-seed-1',
                     help='directory of model for saving checkpoint')
 parser.add_argument('--strategy', default='random')
 parser.add_argument('--log_path', type=str, default='./logs')
@@ -292,10 +292,10 @@ def main():
         transforms.ToTensor()
     ])
 
-    trainset = torchvision.datasets.CIFAR10(root='../../data', train=True, download=True, transform=trans_train)
+    trainset = torchvision.datasets.CIFAR10(root='./dataset', train=True, download=True, transform=trans_train)
     train_loader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size, shuffle=True, drop_last=False,
     num_workers = 4, pin_memory = True)
-    testset = torchvision.datasets.CIFAR10(root='../../data', train=False, download=True, transform=trans_test)
+    testset = torchvision.datasets.CIFAR10(root='./dataset', train=False, download=True, transform=trans_test)
     test_loader = torch.utils.data.DataLoader(testset, batch_size=args.batch_size, shuffle=False, drop_last=False,
                                               num_workers=2, pin_memory=True)
 
