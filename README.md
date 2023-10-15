@@ -5,8 +5,9 @@ This repository is the official implementation of [Robust Representation Learnin
 
 ## Highlight
 
-![](figure/ANC.pdf)
-![](figure/RA.pdf)
+![ANC](https://github.com/changzhang777/ANCRA/tree/main/figure/ANC.png)
+
+![RA](https://github.com/changzhang777/ANCRA/tree/main/figure/RA.png)
 
 ## Requirements
 
@@ -16,7 +17,7 @@ To install requirements:
 pip install -r requirements.txt
 ```
 
-## Trainging:
+## Training:
 ```train
 # To train ANCRA models
 python train_CIFAR10_ResNet.py
