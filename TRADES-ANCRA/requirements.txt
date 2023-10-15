@@ -1,9 +1,0 @@
-autoattack==0.1 # git+https://github.com/fra31/auto-attack
-python-opencv==4.8.0.76
-matplotlib==3.8.0
-numpy==1.26.1
-Pillow==10.0.1
-seaborn==0.13.0
-torch==2.0.0
-torchvision==0.15.1
-umap==0.1.1
