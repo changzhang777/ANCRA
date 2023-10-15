@@ -3,11 +3,13 @@
 
 This repository is the official implementation of [Robust Representation Learning via Asymmetric Negative Contrast and Reverse Attention](https://arxiv.org/abs/2310.03358). 
 
-## Highlight
+## ANCRA
 
-![ANC](https://github.com/changzhang777/ANCRA/tree/main/figure/ANC.png)
+![ANC](https://github.com/changzhang777/ANCRA/blob/main/figure/ANC.png)
+![RA](https://github.com/changzhang777/ANCRA/blob/main/figure/RA.png)
 
-![RA](https://github.com/changzhang777/ANCRA/tree/main/figure/RA.png)
+
+We propose ANCRA, a generic AT framework to address the overlook of robust representation learning. We propose two characteristics of robust feature to guide AT: **Exclusion** and **Alignment**. Following Exclusion, ANC freezes natural examples to alleviate class confusion and only pushes away examples of other classes in the feature space. To improve Alignment, RA weights feature by the partial parameters of the linear classifier, to provide class information and align feature of the same class. ANCRA can be combined with other defenses in a plug-and-play manner. ANCRA achieves state-of-the-art performance on three benchmark datasets.
 
 ## Requirements
 
@@ -45,7 +47,7 @@ python draw_hist.py
 
 :o: denotes training with additional data.
 
-### :one:ResNet-18 CIFAR10
+### ResNet-18 CIFAR10
 
 | Method         | Natural Acc  | AutoAttack Acc |
 | ------------------ |---------------- | -------------- |
@@ -56,7 +58,7 @@ python draw_hist.py
 | ANCRA-MART   |     84.88%         |      59.60%       |
 
 
-### :two:ResNet-18 CIFAR100
+### ResNet-18 CIFAR100
 
 | Method       | Natural Acc  | AutoAttack Acc |
 | ------------------ |---------------- | -------------- |
@@ -65,7 +67,7 @@ python draw_hist.py
 | ANCRA-TRADES   |     53.73%         |      35.81%       |
 | ANCRA-MART   |     60.10%         |      35.05%       |
 
-### :three:WideResNet CIFAR10
+### WideResNet CIFAR10
 
 | Model  |     Method      | Natural Acc  | AutoAttack Acc |
 | ------------------ |---------------- | -------------- |  -------------- |
@@ -76,7 +78,7 @@ python draw_hist.py
 | WRN-28-10 | [Gowal et al. (2020)](https://arxiv.org/abs/2010.03593)   |     89.48%         |      62.76%       |
 | WRN-28-10 | ANCRA-TRADES   |     83.61%         |      65.87%       |
 
-### :four:PreActResNet-18 Tiny-ImageNet
+### PreActResNet-18 Tiny-ImageNet
 
 | Method         | Natural Acc  | PGD-40 Acc |
 | ------------------ |---------------- | -------------- |
