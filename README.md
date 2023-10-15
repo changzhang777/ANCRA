@@ -19,7 +19,7 @@ To install requirements:
 pip install -r requirements.txt
 ```
 
-## Training:
+## Training
 ```train
 # To train ANCRA models
 python train_CIFAR10_ResNet.py
@@ -32,7 +32,7 @@ python train_ResNet18_baseline.py
 python train_PreActResNet_baseline.py
 ```
 
-## Evaluation: 
+## Evaluation
 ```test
 # To test robust accuracy against white-box attacks
 python test_white_attack.py --ckpt_url $checkpoint_path$
