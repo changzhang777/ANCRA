@@ -4,7 +4,7 @@ import argparse
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch-vision import transforms
+from torchvision import transforms
 import torch.backends.cudnn as cudnn
 
 import numpy as np
