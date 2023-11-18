@@ -4,9 +4,7 @@ This repository is the official implementation of [Robust Representation Learnin
 
 ## ANCRA
 
-![ANC](https://github.com/changzhang777/ANCRA/blob/main/figure/ANC.png)
-![RA](https://github.com/changzhang777/ANCRA/blob/main/figure/RA.png)
-
+![ANCRA](https://github.com/changzhang777/ANCRA/blob/main/figure/overview.png)
 
 We propose ANCRA, a generic AT framework to address the overlook of robust representation learning. We propose two characteristics of robust feature to guide AT: **Exclusion** and **Alignment**. Following Exclusion, ANC freezes natural examples to alleviate class confusion and only pushes away examples of other classes in the feature space. To improve Alignment, RA weights feature by the partial parameters of the linear classifier, to provide class information and align feature of the same class. ANCRA can be combined with other defenses in a plug-and-play manner. ANCRA achieves state-of-the-art performance on three benchmark datasets.
 
