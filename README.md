@@ -25,7 +25,7 @@ python train_Tiny_ImageNet_PreActResNet.py
 
 # To train baselines:
 python train_ResNet18_baseline.py
-python train_ResNet18_baseline.py
+python train_WideResNet_baseline.py
 python train_PreActResNet_baseline.py
 ```
 
@@ -90,11 +90,11 @@ python draw_hist.py
 If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
 
 ```
-@article{zhou2023robust,
-  title={ROBUST REPRESENTATION LEARNING VIA ASYMMET-RIC NEGATIVE CONTRAST AND REVERSE ATTENTION},
-  author={Zhou, Nuoyan and Liu, Decheng and Zhou, Dawei and Gao, Xinbo and Wang, Nannan},
-  journal={arXiv preprint arXiv:2310.03358},
-  year={2023}
+@inproceedings{Zhou2023EnhancingRR,
+  title={Enhancing Robust Representation in Adversarial Training: Alignment and Exclusion Criteria},
+  author={Nuoyan Zhou and Nannan Wang and Decheng Liu and Dawei Zhou and Xinbo Gao},
+  year={2023},
+  url={https://api.semanticscholar.org/CorpusID:263672090}
 }
 ```
 
