@@ -1,6 +1,6 @@
-# Robust Representation Learning via Asymmetric Negative Contrast and Reverse Attention (ANCRA)
+# Enhancing Robust Representation in Adversarial Training: Alignment and Exclusion Criteria (ANCRA)
 
-This repository is the official implementation of [Enhancing Robust Representation in Adversarial Training: Alignment and Exclusion Criteria](https://arxiv.org/abs/2310.03358). 
+This repository is the official implementation of [Enhancing Robust Representation in Adversarial Training: Alignment and Exclusion Criteria](https://arxiv.org/abs/2310.03358), its former name is ``Robust Representation Learning via Asymmetric Negative Contrast and Reverse Attention''. 
 
 ## ANCRA
 
